@@ -1,7 +1,7 @@
-package com.shopcompare.controller;
+package com.shopcompare.datamanagement.application.controller;
 
-import com.shopcompare.domain.Category;
-import com.shopcompare.service.CategoryService;
+import com.shopcompare.datamanagement.persistence.domain.Category;
+import com.shopcompare.datamanagement.business.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

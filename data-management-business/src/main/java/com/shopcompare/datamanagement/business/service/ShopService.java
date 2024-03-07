@@ -1,7 +1,7 @@
-package com.shopcompare.service;
+package com.shopcompare.datamanagement.business.service;
 
-import com.shopcompare.domain.Shop;
-import com.shopcompare.repository.ShopRepository;
+import com.shopcompare.datamanagement.persistence.domain.Shop;
+import com.shopcompare.datamanagement.persistence.repository.ShopRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

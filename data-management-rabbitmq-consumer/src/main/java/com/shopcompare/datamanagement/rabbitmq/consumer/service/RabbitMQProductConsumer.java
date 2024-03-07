@@ -1,8 +1,11 @@
-package com.shopcompare.service;
+package com.shopcompare.datamanagement.rabbitmq.consumer.service;
 
-import com.shopcompare.domain.Category;
-import com.shopcompare.domain.ProductMessage;
-import com.shopcompare.domain.Shop;
+import com.shopcompare.datamanagement.business.domain.ProductMessage;
+import com.shopcompare.datamanagement.business.service.CategoryService;
+import com.shopcompare.datamanagement.business.service.ProductService;
+import com.shopcompare.datamanagement.business.service.ShopService;
+import com.shopcompare.datamanagement.persistence.domain.Category;
+import com.shopcompare.datamanagement.persistence.domain.Shop;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -28,15 +31,15 @@ public class RabbitMQProductConsumer {
         Shop shop = null;
         if (productMessageOptional.isPresent()) {
             ProductMessage productMessage = productMessageOptional.get();
-            int categoryId = productMessage.categoryId();
+            String categoryName = productMessage.category();
             String shopName = productMessage.shopName();
-            category = categoryService.findById(categoryId);
+            category = categoryService.findByName(categoryName);
             shop = shopService.findById(shopName);
         }
 
         if (category != null && shop != null) {
             for (ProductMessage productMessage : productMessages) {
-                productService.insertProduct(productMessage, category, shop);
+                productService.saveProduct(productMessage, category, shop);
             }
         }
     }

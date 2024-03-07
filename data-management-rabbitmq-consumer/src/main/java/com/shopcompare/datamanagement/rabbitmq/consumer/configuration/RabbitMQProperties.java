@@ -1,4 +1,4 @@
-package com.shopcompare.configuration;
+package com.shopcompare.datamanagement.rabbitmq.consumer.configuration;
 
 import lombok.Getter;
 import lombok.Setter;

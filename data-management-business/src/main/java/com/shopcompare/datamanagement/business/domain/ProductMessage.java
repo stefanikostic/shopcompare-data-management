@@ -1,9 +1,9 @@
-package com.shopcompare.domain;
+package com.shopcompare.datamanagement.business.domain;
 
 import java.io.Serializable;
 
 public record ProductMessage(String name,
-                             String shopName, int categoryId, String link, String image, boolean isAvailable,
+                             String shopName, String category, String link, String image, boolean isAvailable,
                              Double originalPrice, Double promotionalPrice) implements Serializable {
 
 }

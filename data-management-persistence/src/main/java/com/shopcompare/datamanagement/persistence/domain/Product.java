@@ -1,4 +1,4 @@
-package com.shopcompare.domain;
+package com.shopcompare.datamanagement.persistence.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
