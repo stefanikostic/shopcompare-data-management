@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service that provides CRUD operations of products.
+ */
 @RequiredArgsConstructor
 @Service
 public class ProductService {
@@ -21,14 +24,6 @@ public class ProductService {
                 category, shop, productMessage.isAvailable(), productMessage.originalPrice(),
                 productMessage.promotionalPrice());
         productRepository.save(product);
-    }
-
-    public List<Product> getProductsByShop(String shopName) {
-        return productRepository.findByShopName(shopName);
-    }
-
-    public List<Product> getProductsByShopNot(String shopName) {
-        return productRepository.findByShopNameNot(shopName);
     }
 
     public List<Product> getProductsByShopAndCategory(String shopName, int categoryId) {

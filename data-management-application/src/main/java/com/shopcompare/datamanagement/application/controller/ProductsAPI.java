@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Rest endpoint that exposes endpoints for fetching products.
+ */
 @RestController
 @RequiredArgsConstructor
 public class ProductsAPI {
 
     private final ProductService productService;
-
 
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getProductsByCategoryAndShopName(@RequestParam("shopName") String shopName,

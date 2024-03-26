@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+/**
+ * Model representing composite product key.
+ */
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor

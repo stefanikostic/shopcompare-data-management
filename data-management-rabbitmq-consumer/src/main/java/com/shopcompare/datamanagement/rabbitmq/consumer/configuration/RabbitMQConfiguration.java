@@ -11,9 +11,11 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuration class that contains bean definitions required for setting up RabbitMQ.
+ */
 @Configuration
 @RequiredArgsConstructor
 public class RabbitMQConfiguration {
@@ -22,7 +24,7 @@ public class RabbitMQConfiguration {
     // spring bean for rabbitmq queue
     @Bean
     public Queue queue(){
-        return new Queue(rabbitMQProperties.getQueueName());
+        return new Queue(rabbitMQProperties.getProductsQueueName());
     }
 
     // spring bean for rabbitmq exchange

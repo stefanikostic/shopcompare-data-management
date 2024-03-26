@@ -5,13 +5,16 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Class representing Rabbit MQ properties.
+ */
 @Getter
 @Setter
 @Configuration
 @ConfigurationProperties("rabbitmq")
 public class RabbitMQProperties {
 
-    private String queueName;
+    private String productsQueueName;
 
     private String exchangeName;
 

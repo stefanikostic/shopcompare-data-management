@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Persistence model for Product.
+ */
 @Entity
 @Getter
 @NoArgsConstructor

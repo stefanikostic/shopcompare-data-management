@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Rest controller that exposes endpoints for fetching categories.
+ */
 @RestController
 @RequiredArgsConstructor
 public class CategoryAPI {

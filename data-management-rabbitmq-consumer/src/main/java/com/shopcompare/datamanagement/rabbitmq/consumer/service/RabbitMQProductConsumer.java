@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * Service that consumes messages from RabbitMQ product queue.
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -23,14 +26,19 @@ public class RabbitMQProductConsumer {
     private final ShopService shopService;
     private final ProductService productService;
 
+    /**
+     * Consumes {@link ProductMessage} from queue name defined in property `rabbitmq.products-queue-name`.<br/>
+     * It saves the consumed products if extracted category and shop are not null.
+     *
+     * @param productMessages consumed set of messages.
+     */
     @RabbitListener(queues = {"${rabbitmq.queue-name}"})
-    public void consume(Set<ProductMessage> productMessages) {
-        Optional<ProductMessage> productMessageOptional = productMessages.stream().findFirst();
-
+    public void consumeAndPersistProducts(Set<ProductMessage> productMessages) {
         Category category = null;
         Shop shop = null;
-        if (productMessageOptional.isPresent()) {
-            ProductMessage productMessage = productMessageOptional.get();
+        Optional<ProductMessage> firstProductMessageOptional = productMessages.stream().findFirst();
+        if (firstProductMessageOptional.isPresent()) {
+            ProductMessage productMessage = firstProductMessageOptional.get();
             String categoryName = productMessage.category();
             String shopName = productMessage.shopName();
             category = categoryService.findByName(categoryName);

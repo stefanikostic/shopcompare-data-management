@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Persistence model for shop.
+ */
 @Entity
 @Getter
 @NoArgsConstructor

@@ -8,19 +8,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service that provides search operations for shops.
+ */
 @RequiredArgsConstructor
 @Service
 public class ShopService {
 
     private final ShopRepository shopRepository;
 
-    public List<Shop> findAll() {
-        return shopRepository.findAll();
-    }
-
     public Shop findById(String shopName) {
-        Optional<Shop> shop = shopRepository.findById(shopName);
+        Optional<Shop> shopOptional = shopRepository.findById(shopName);
 
-        return shop.get();
+        return shopOptional.orElse(null);
     }
 }
