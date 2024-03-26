@@ -32,7 +32,7 @@ public class RabbitMQProductConsumer {
      *
      * @param productMessages consumed set of messages.
      */
-    @RabbitListener(queues = {"${rabbitmq.queue-name}"})
+    @RabbitListener(queues = {"${rabbitmq.products-queue-name}"})
     public void consumeAndPersistProducts(Set<ProductMessage> productMessages) {
         Category category = null;
         Shop shop = null;
