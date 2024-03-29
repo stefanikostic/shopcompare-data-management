@@ -25,7 +25,7 @@ related to data management.
 
 Setup 
 ---
-Make sure you have JDK17 installed
-Enable dev profile for local setup
-Execute mvn clean install
-Start the Db Seed Application
+- Make sure you have JDK17 installed
+- Enable dev profile for local setup
+- Execute mvn clean install
+- Start the Db Seed Application
